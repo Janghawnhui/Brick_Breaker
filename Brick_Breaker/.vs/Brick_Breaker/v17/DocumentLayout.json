@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\2nd\\2\uD559\uAE30 vc\u002B\u002B\\Brick_Breaker\\Brick_Breaker\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{36C2CEF4-3E93-460E-BDA1-5EBD171066EA}|Brick_Breaker\\Brick_Breaker.vcxproj|C:\\2nd\\2\uD559\uAE30 vc\u002B\u002B\\Brick_Breaker\\Brick_Breaker\\Brick_Breaker\\Brick_Breaker.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{36C2CEF4-3E93-460E-BDA1-5EBD171066EA}|Brick_Breaker\\Brick_Breaker.vcxproj|solutionrelative:Brick_Breaker\\Brick_Breaker.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Brick_Breaker.cpp",
+              "DocumentMoniker": "C:\\2nd\\2\uD559\uAE30 vc\u002B\u002B\\Brick_Breaker\\Brick_Breaker\\Brick_Breaker\\Brick_Breaker.cpp",
+              "RelativeDocumentMoniker": "Brick_Breaker\\Brick_Breaker.cpp",
+              "ToolTip": "C:\\2nd\\2\uD559\uAE30 vc\u002B\u002B\\Brick_Breaker\\Brick_Breaker\\Brick_Breaker\\Brick_Breaker.cpp",
+              "RelativeToolTip": "Brick_Breaker\\Brick_Breaker.cpp",
+              "ViewState": "AQIAAGwAAAAAAAAAAADwv4cAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-17T10:27:49.2Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
