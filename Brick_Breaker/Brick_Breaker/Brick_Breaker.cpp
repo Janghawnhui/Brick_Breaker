@@ -110,6 +110,11 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    return TRUE;
 }
+/// 전역변수 정의
+
+GameArea paintSquare;
+
+Paddle paddle(50, 700, 150, 20);
 
 //
 //  함수: WndProc(HWND, UINT, WPARAM, LPARAM)
@@ -125,6 +130,15 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
     {
+    case WM_MOUSEMOVE:
+    {
+        int mouseX = LOWORD(lParam);
+
+        paddle.move(mouseX);
+
+        InvalidateRect(hWnd, NULL, TRUE);
+        break;
+    }
     case WM_COMMAND:
         {
             int wmId = LOWORD(wParam);
@@ -147,6 +161,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
             // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
+
+            paintSquare.makeSquare(hdc);
+
+            paddle.draw(hdc);
+
             EndPaint(hWnd, &ps);
         }
         break;

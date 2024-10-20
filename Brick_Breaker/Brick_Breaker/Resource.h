@@ -28,3 +28,13 @@
 #define _APS_NEXT_SYMED_VALUE		110
 #endif
 #endif
+
+///영역 정의
+
+///게임 영역 	Rectangle(hdc, 10, 30, 1000, 830);
+#define GAME_AREA_LEFT 10
+#define GAME_AREA_TOP 30
+#define GAME_AREA_RIGHT 1200
+#define GAME_AREA_BOTTOM 830
+
+///윈도우창 크기 정의

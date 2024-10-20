@@ -27,9 +27,21 @@
     <ClInclude Include="Brick_Breaker.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Area.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Paddle.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Brick_Breaker.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Area.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Paddle.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

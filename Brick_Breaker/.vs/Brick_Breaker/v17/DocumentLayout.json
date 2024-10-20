@@ -5,6 +5,34 @@
     {
       "AbsoluteMoniker": "D:0:0:{36C2CEF4-3E93-460E-BDA1-5EBD171066EA}|Brick_Breaker\\Brick_Breaker.vcxproj|C:\\2nd\\2\uD559\uAE30 vc\u002B\u002B\\Brick_Breaker\\Brick_Breaker\\Brick_Breaker\\Brick_Breaker.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{36C2CEF4-3E93-460E-BDA1-5EBD171066EA}|Brick_Breaker\\Brick_Breaker.vcxproj|solutionrelative:Brick_Breaker\\Brick_Breaker.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36C2CEF4-3E93-460E-BDA1-5EBD171066EA}|Brick_Breaker\\Brick_Breaker.vcxproj|C:\\2nd\\2\uD559\uAE30 vc\u002B\u002B\\Brick_Breaker\\Brick_Breaker\\Brick_Breaker\\Paddle.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{36C2CEF4-3E93-460E-BDA1-5EBD171066EA}|Brick_Breaker\\Brick_Breaker.vcxproj|solutionrelative:Brick_Breaker\\Paddle.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36C2CEF4-3E93-460E-BDA1-5EBD171066EA}|Brick_Breaker\\Brick_Breaker.vcxproj|C:\\2nd\\2\uD559\uAE30 vc\u002B\u002B\\Brick_Breaker\\Brick_Breaker\\Brick_Breaker\\Resource.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{36C2CEF4-3E93-460E-BDA1-5EBD171066EA}|Brick_Breaker\\Brick_Breaker.vcxproj|solutionrelative:Brick_Breaker\\Resource.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36C2CEF4-3E93-460E-BDA1-5EBD171066EA}|Brick_Breaker\\Brick_Breaker.vcxproj|C:\\2nd\\2\uD559\uAE30 vc\u002B\u002B\\Brick_Breaker\\Brick_Breaker\\Brick_Breaker\\Brick_Breaker.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{36C2CEF4-3E93-460E-BDA1-5EBD171066EA}|Brick_Breaker\\Brick_Breaker.vcxproj|solutionrelative:Brick_Breaker\\Brick_Breaker.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36C2CEF4-3E93-460E-BDA1-5EBD171066EA}|Brick_Breaker\\Brick_Breaker.vcxproj|C:\\2nd\\2\uD559\uAE30 vc\u002B\u002B\\Brick_Breaker\\Brick_Breaker\\Brick_Breaker\\Paddle.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{36C2CEF4-3E93-460E-BDA1-5EBD171066EA}|Brick_Breaker\\Brick_Breaker.vcxproj|solutionrelative:Brick_Breaker\\Paddle.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36C2CEF4-3E93-460E-BDA1-5EBD171066EA}|Brick_Breaker\\Brick_Breaker.vcxproj|C:\\2nd\\2\uD559\uAE30 vc\u002B\u002B\\Brick_Breaker\\Brick_Breaker\\Brick_Breaker\\framework.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{36C2CEF4-3E93-460E-BDA1-5EBD171066EA}|Brick_Breaker\\Brick_Breaker.vcxproj|solutionrelative:Brick_Breaker\\framework.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36C2CEF4-3E93-460E-BDA1-5EBD171066EA}|Brick_Breaker\\Brick_Breaker.vcxproj|C:\\2nd\\2\uD559\uAE30 vc\u002B\u002B\\Brick_Breaker\\Brick_Breaker\\Brick_Breaker\\Area.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{36C2CEF4-3E93-460E-BDA1-5EBD171066EA}|Brick_Breaker\\Brick_Breaker.vcxproj|solutionrelative:Brick_Breaker\\Area.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36C2CEF4-3E93-460E-BDA1-5EBD171066EA}|Brick_Breaker\\Brick_Breaker.vcxproj|C:\\2nd\\2\uD559\uAE30 vc\u002B\u002B\\Brick_Breaker\\Brick_Breaker\\Brick_Breaker\\Area.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{36C2CEF4-3E93-460E-BDA1-5EBD171066EA}|Brick_Breaker\\Brick_Breaker.vcxproj|solutionrelative:Brick_Breaker\\Area.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +42,99 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 7,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Paddle.h",
+              "DocumentMoniker": "C:\\2nd\\2\uD559\uAE30 vc\u002B\u002B\\Brick_Breaker\\Brick_Breaker\\Brick_Breaker\\Paddle.h",
+              "RelativeDocumentMoniker": "Brick_Breaker\\Paddle.h",
+              "ToolTip": "C:\\2nd\\2\uD559\uAE30 vc\u002B\u002B\\Brick_Breaker\\Brick_Breaker\\Brick_Breaker\\Paddle.h",
+              "RelativeToolTip": "Brick_Breaker\\Paddle.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-17T12:31:55.38Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Paddle.cpp",
+              "DocumentMoniker": "C:\\2nd\\2\uD559\uAE30 vc\u002B\u002B\\Brick_Breaker\\Brick_Breaker\\Brick_Breaker\\Paddle.cpp",
+              "RelativeDocumentMoniker": "Brick_Breaker\\Paddle.cpp",
+              "ToolTip": "C:\\2nd\\2\uD559\uAE30 vc\u002B\u002B\\Brick_Breaker\\Brick_Breaker\\Brick_Breaker\\Paddle.cpp",
+              "RelativeToolTip": "Brick_Breaker\\Paddle.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-17T12:31:39.52Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "framework.h",
+              "DocumentMoniker": "C:\\2nd\\2\uD559\uAE30 vc\u002B\u002B\\Brick_Breaker\\Brick_Breaker\\Brick_Breaker\\framework.h",
+              "RelativeDocumentMoniker": "Brick_Breaker\\framework.h",
+              "ToolTip": "C:\\2nd\\2\uD559\uAE30 vc\u002B\u002B\\Brick_Breaker\\Brick_Breaker\\Brick_Breaker\\framework.h",
+              "RelativeToolTip": "Brick_Breaker\\framework.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvwAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-17T12:29:37.607Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Resource.h",
+              "DocumentMoniker": "C:\\2nd\\2\uD559\uAE30 vc\u002B\u002B\\Brick_Breaker\\Brick_Breaker\\Brick_Breaker\\Resource.h",
+              "RelativeDocumentMoniker": "Brick_Breaker\\Resource.h",
+              "ToolTip": "C:\\2nd\\2\uD559\uAE30 vc\u002B\u002B\\Brick_Breaker\\Brick_Breaker\\Brick_Breaker\\Resource.h",
+              "RelativeToolTip": "Brick_Breaker\\Resource.h",
+              "ViewState": "AQIAABMAAAAAAAAAAAAmwCgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-17T12:20:08.568Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Brick_Breaker.h",
+              "DocumentMoniker": "C:\\2nd\\2\uD559\uAE30 vc\u002B\u002B\\Brick_Breaker\\Brick_Breaker\\Brick_Breaker\\Brick_Breaker.h",
+              "RelativeDocumentMoniker": "Brick_Breaker\\Brick_Breaker.h",
+              "ToolTip": "C:\\2nd\\2\uD559\uAE30 vc\u002B\u002B\\Brick_Breaker\\Brick_Breaker\\Brick_Breaker\\Brick_Breaker.h",
+              "RelativeToolTip": "Brick_Breaker\\Brick_Breaker.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvwQAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-17T12:11:30.112Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Area.h",
+              "DocumentMoniker": "C:\\2nd\\2\uD559\uAE30 vc\u002B\u002B\\Brick_Breaker\\Brick_Breaker\\Brick_Breaker\\Area.h",
+              "RelativeDocumentMoniker": "Brick_Breaker\\Area.h",
+              "ToolTip": "C:\\2nd\\2\uD559\uAE30 vc\u002B\u002B\\Brick_Breaker\\Brick_Breaker\\Brick_Breaker\\Area.h",
+              "RelativeToolTip": "Brick_Breaker\\Area.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvwcAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-17T11:51:12.367Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Area.cpp",
+              "DocumentMoniker": "C:\\2nd\\2\uD559\uAE30 vc\u002B\u002B\\Brick_Breaker\\Brick_Breaker\\Brick_Breaker\\Area.cpp",
+              "RelativeDocumentMoniker": "Brick_Breaker\\Area.cpp",
+              "ToolTip": "C:\\2nd\\2\uD559\uAE30 vc\u002B\u002B\\Brick_Breaker\\Brick_Breaker\\Brick_Breaker\\Area.cpp",
+              "RelativeToolTip": "Brick_Breaker\\Area.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-17T11:51:04.242Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -24,9 +143,9 @@
               "RelativeDocumentMoniker": "Brick_Breaker\\Brick_Breaker.cpp",
               "ToolTip": "C:\\2nd\\2\uD559\uAE30 vc\u002B\u002B\\Brick_Breaker\\Brick_Breaker\\Brick_Breaker\\Brick_Breaker.cpp",
               "RelativeToolTip": "Brick_Breaker\\Brick_Breaker.cpp",
-              "ViewState": "AQIAAGwAAAAAAAAAAADwv4cAAAAWAAAA",
+              "ViewState": "AQIAAG8AAAAAAAAAAAAuwIYAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-17T10:27:49.2Z",
+              "WhenOpened": "2024-10-17T10:54:52.009Z",
               "EditorCaption": ""
             }
           ]
