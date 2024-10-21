@@ -14,6 +14,14 @@ Paddle::~Paddle() {
 
 void Paddle::move(int mouseX) {
 	x = mouseX - (width / 2);
+	
+	if (x < 10) {
+		x = 10;
+	}
+	
+	if (x + width > 1100) {
+		x =	1100 - width;
+	}
 }
 
 void Paddle::draw(HDC hdc) {

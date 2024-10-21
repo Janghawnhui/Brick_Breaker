@@ -97,8 +97,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
-   HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-      CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
+   HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPED | WS_SYSMENU,
+       CW_USEDEFAULT, 0, 1130, 800, nullptr, nullptr, hInstance, nullptr);
+
 
    if (!hWnd)
    {
@@ -114,7 +115,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
 GameArea paintSquare;
 
-Paddle paddle(50, 700, 150, 20);
+Paddle paddle(PADDLE_LEFT, PADDLE_TOP, PADDLE_RIGHT, PADDLE_BOTTOM);
 
 //
 //  함수: WndProc(HWND, UINT, WPARAM, LPARAM)

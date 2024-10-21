@@ -34,7 +34,13 @@
 ///게임 영역 	Rectangle(hdc, 10, 30, 1000, 830);
 #define GAME_AREA_LEFT 10
 #define GAME_AREA_TOP 30
-#define GAME_AREA_RIGHT 1200
-#define GAME_AREA_BOTTOM 830
+#define GAME_AREA_RIGHT 1100
+#define GAME_AREA_BOTTOM 730
+
+///패들 크기
+#define PADDLE_LEFT 50
+#define PADDLE_TOP 650
+#define PADDLE_RIGHT 150
+#define PADDLE_BOTTOM 20
 
 ///윈도우창 크기 정의
