@@ -17,6 +17,7 @@ public:
     void move(int mouseX); // direction: -1 (왼쪽), 1 (오른쪽)
     void draw(HDC hdc);       // 패들을 그리는 메서드
     RECT getRect();           // 패들의 사각형 영역을 반환
+    //DWORD WINAPI Paddle_Thread(LPVOID param); //
 
 
 };

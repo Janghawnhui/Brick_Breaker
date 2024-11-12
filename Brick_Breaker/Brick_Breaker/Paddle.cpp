@@ -36,3 +36,14 @@ RECT Paddle::getRect() {
 	rect.bottom = y + height;
 	return rect;
 }
+
+//DWORD WINAPI Paddle::Paddle_Thread(LPVOID param) {
+//	x = LOWORD(param) - (width / 2);
+//	if (x < 10) {
+//		x = 10;
+//	}
+//
+//	if (x + width > 1100) {
+//		x = 1100 - width;
+//	}
+//}

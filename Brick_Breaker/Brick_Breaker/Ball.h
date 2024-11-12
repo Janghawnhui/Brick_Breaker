@@ -4,14 +4,14 @@
 #include "framework.h"
 
 class Ball {
-private:
+public:
 	int x;
 	int y;
 	int width;
 	int height;
 	int speed;
 
-public:
+
 	Ball(int x, int y, int width, int height, int speed);
 	~Ball();
 

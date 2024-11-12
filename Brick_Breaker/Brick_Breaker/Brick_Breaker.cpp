@@ -117,6 +117,11 @@ GameArea paintSquare;
 
 Paddle paddle(PADDLE_LEFT, PADDLE_TOP, PADDLE_RIGHT, PADDLE_BOTTOM);
 
+Ball ball(100, 100, 20, 20, 5); // 초기 위치와 크기, 속도를 설정
+
+int ballSpeedX = 5; // x축 속도
+int ballSpeedY = 5; // y축 속도
+
 //
 //  함수: WndProc(HWND, UINT, WPARAM, LPARAM)
 //
@@ -131,6 +136,35 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
     {
+    case WM_CREATE:
+        SetTimer(hWnd, 1, 30, NULL);
+        break;
+
+    case WM_TIMER:
+        // 공의 위치 업데이트 로직
+        ball.x += ballSpeedX;
+        ball.y += ballSpeedY;
+
+        // 경계 확인 후 방향 변경
+        if (ball.x + ball.width >= GAME_AREA_RIGHT || ball.x <= 0) {
+            ballSpeedX = -ballSpeedX; // x 방향 반전
+        }
+
+        // 상하 경계 확인
+        if (ball.y + ball.height >= GAME_AREA_BOTTOM || ball.y <= 0) {
+            ballSpeedY = -ballSpeedY; // y 방향 반전
+        }
+        
+        if (ball.x <= GAME_AREA_LEFT) {
+            ballSpeedX = -ballSpeedX;
+        }
+
+        if (ball.y<= GAME_AREA_TOP ) {
+            ballSpeedY = -ballSpeedY; // y 방향 반전
+        }
+        // 창 다시 그리기
+        InvalidateRect(hWnd, NULL, TRUE);
+        break;
     case WM_MOUSEMOVE:
     {
         int mouseX = LOWORD(lParam);
@@ -167,10 +201,12 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
             paddle.draw(hdc);
 
+            Ellipse(hdc, ball.x, ball.y, ball.x + ball.width, ball.y + ball.height);
             EndPaint(hWnd, &ps);
         }
         break;
     case WM_DESTROY:
+        KillTimer(hWnd, 1);
         PostQuitMessage(0);
         break;
     default:
