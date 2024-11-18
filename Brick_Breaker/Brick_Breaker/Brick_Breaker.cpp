@@ -98,7 +98,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPED | WS_SYSMENU,
-       CW_USEDEFAULT, 0, 1130, 800, nullptr, nullptr, hInstance, nullptr);
+       CW_USEDEFAULT, 0, WINDOW_WIDTH, WINDOW_HEIGHT, nullptr, nullptr, hInstance, nullptr);
 
 
    if (!hWnd)
@@ -117,10 +117,7 @@ GameArea paintSquare;
 
 Paddle paddle(PADDLE_LEFT, PADDLE_TOP, PADDLE_RIGHT, PADDLE_BOTTOM);
 
-Ball ball(100, 100, 20, 20, 5); // 초기 위치와 크기, 속도를 설정
-
-int ballSpeedX = 5; // x축 속도
-int ballSpeedY = 5; // y축 속도
+Ball ball(100, 100, 5, 5, 5, 5); // 초기 위치와 크기, 속도를 설정
 
 //
 //  함수: WndProc(HWND, UINT, WPARAM, LPARAM)
@@ -137,32 +134,15 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     switch (message)
     {
     case WM_CREATE:
-        SetTimer(hWnd, 1, 30, NULL);
+        SetTimer(hWnd, 1, 5, NULL);
         break;
 
     case WM_TIMER:
-        // 공의 위치 업데이트 로직
-        ball.x += ballSpeedX;
-        ball.y += ballSpeedY;
+        // 공의 위치 업데이트
 
-        // 경계 확인 후 방향 변경
-        if (ball.x + ball.width >= GAME_AREA_RIGHT || ball.x <= 0) {
-            ballSpeedX = -ballSpeedX; // x 방향 반전
-        }
+        ball.area_updatePosition(GAME_AREA_LEFT, GAME_AREA_TOP, GAME_AREA_RIGHT, GAME_AREA_BOTTOM);
+        ball.paddle_updatePosition(PADDLE_LEFT, PADDLE_TOP, PADDLE_RIGHT, PADDLE_BOTTOM);
 
-        // 상하 경계 확인
-        if (ball.y + ball.height >= GAME_AREA_BOTTOM || ball.y <= 0) {
-            ballSpeedY = -ballSpeedY; // y 방향 반전
-        }
-        
-        if (ball.x <= GAME_AREA_LEFT) {
-            ballSpeedX = -ballSpeedX;
-        }
-
-        if (ball.y<= GAME_AREA_TOP ) {
-            ballSpeedY = -ballSpeedY; // y 방향 반전
-        }
-        // 창 다시 그리기
         InvalidateRect(hWnd, NULL, TRUE);
         break;
     case WM_MOUSEMOVE:

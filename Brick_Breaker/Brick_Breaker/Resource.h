@@ -31,16 +31,26 @@
 
 ///영역 정의
 
-///게임 영역 	Rectangle(hdc, 10, 30, 1000, 830);
+///윈도우창 크기 정의
+//HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPED | WS_SYSMENU, CW_USEDEFAULT, 0, 1130, 800, nullptr, nullptr, hInstance, nullptr);
+
+#define WINDOW_WIDTH 1130
+#define WINDOW_HEIGHT 800
+
+///게임 영역 	
+//Rectangle(hdc, 10, 30, 1000, 830);
 #define GAME_AREA_LEFT 10
 #define GAME_AREA_TOP 30
 #define GAME_AREA_RIGHT 1100
 #define GAME_AREA_BOTTOM 730
 
-///패들 크기
+///객체 정의 (공, 벽돌, 패들)
+
+///패들 크기 및 위치
+//Paddle paddle(50, 650, 150, 20);
 #define PADDLE_LEFT 50
 #define PADDLE_TOP 650
 #define PADDLE_RIGHT 150
 #define PADDLE_BOTTOM 20
 
-///윈도우창 크기 정의
+
