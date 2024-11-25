@@ -17,6 +17,7 @@ public:
 	~Ball();
 
 	void area_updatePosition(int area_left, int area_top, int area_right, int area_bottom);
-	void paddle_updatePosition(int paddle_left, int paddle_top, int paddle_rigght, int paddle_bottom);
+	void paddle_updatePosition(int paddle_left, int paddle_top, int paddle_right, int paddle_bottom);
+	void brick_updatePosition(int brick_left, int brick_top, int brick_right, int brick_bottom);
 	bool isInsideEllipse(int px, int py);
 };

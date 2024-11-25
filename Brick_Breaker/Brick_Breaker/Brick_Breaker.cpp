@@ -113,11 +113,22 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 }
 /// 전역변수 정의
 
+int brick_x = 40;
+int brick_y = 40;
 GameArea paintSquare;
 
 Paddle paddle(PADDLE_LEFT, PADDLE_TOP, PADDLE_RIGHT, PADDLE_BOTTOM);
 
+
+//(brick_x, brick_y, brick_x + 70, brick_y + 15);
+
+Brick* brick[6][10];
+
 Ball ball(100, 100, 5, 5, 5, 5); // 초기 위치와 크기, 속도를 설정
+
+RECT tmpRect;
+
+int g_num = 10;
 
 //
 //  함수: WndProc(HWND, UINT, WPARAM, LPARAM)
@@ -134,14 +145,29 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     switch (message)
     {
     case WM_CREATE:
+        for (int j = 0; j < 6; j++) { // 0부터 3까지
+            for (int i = 0; i < g_num; i++) { // 0부터 g_num-1까지
+                brick[j][i] = new Brick(50 +100* i, 40+ 50 * j); // x, y 위치를 다르게 설정
+            }
+        }
         SetTimer(hWnd, 1, 5, NULL);
         break;
 
     case WM_TIMER:
         // 공의 위치 업데이트
+ 
+        RECT paddlemove = paddle.getRect();
 
         ball.area_updatePosition(GAME_AREA_LEFT, GAME_AREA_TOP, GAME_AREA_RIGHT, GAME_AREA_BOTTOM);
-        ball.paddle_updatePosition(PADDLE_LEFT, PADDLE_TOP, PADDLE_RIGHT, PADDLE_BOTTOM);
+        ball.paddle_updatePosition(paddlemove.left, paddlemove.top, paddlemove.right, paddlemove.bottom);
+        for (int j = 0; j < 6; j++) {
+            for (int i = 0; i < g_num; i++) {
+                RECT brickRect = brick[j][i];
+                ball.brick_updatePosition(brick[j][i].left, brick[j][i].top, brick[j][i].right, brick[j][i].bottom);
+            }
+        }
+        
+
 
         InvalidateRect(hWnd, NULL, TRUE);
         break;
@@ -180,6 +206,14 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             paintSquare.makeSquare(hdc);
 
             paddle.draw(hdc);
+            for (int j = 0; j < 6; j++) {
+                for (int i = 0; i < g_num; i++) {
+                    if (brick[i] != nullptr) {
+                        brick[j][i]->draw(hdc);
+                    }
+                }
+            }
+            
 
             Ellipse(hdc, ball.x, ball.y, ball.x + ball.width, ball.y + ball.height);
             EndPaint(hWnd, &ps);
