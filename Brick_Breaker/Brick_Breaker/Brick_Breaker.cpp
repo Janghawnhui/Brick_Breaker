@@ -124,12 +124,14 @@ Paddle paddle(PADDLE_LEFT, PADDLE_TOP, PADDLE_RIGHT, PADDLE_BOTTOM);
 
 Brick* brick[6][10];
 
-Ball ball(100, 100, 5, 5, 5, 5); // 초기 위치와 크기, 속도를 설정
+Ball ball(1000, 700, 5, 5, 5, 5); // 초기 위치와 크기, 속도를 설정
 
 RECT tmpRect;
 
 int g_num = 10;
 
+int brick_width = 50;
+int brick_height = 40;
 //
 //  함수: WndProc(HWND, UINT, WPARAM, LPARAM)
 //
@@ -147,39 +149,92 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     case WM_CREATE:
         for (int j = 0; j < 6; j++) { // 0부터 3까지
             for (int i = 0; i < g_num; i++) { // 0부터 g_num-1까지
-                brick[j][i] = new Brick(50 +100* i, 40+ 50 * j); // x, y 위치를 다르게 설정
+                brick[j][i] = new Brick(brick_width +100* i, brick_height+ 50 * j, brick_width+ 100*i+50, brick_height+50*j+40); // x, y 위치를 다르게 설정
             }
         }
-        SetTimer(hWnd, 1, 5, NULL);
+        SetTimer(hWnd, 1, 1, NULL);
         break;
-
     case WM_TIMER:
-        // 공의 위치 업데이트
- 
-        RECT paddlemove = paddle.getRect();
+    {
+        // 공의 이전 위치 계산
+        RECT prevBallRect = { ball.x, ball.y, ball.x + ball.width, ball.y + ball.height };
 
+        // Paddle 위치 업데이트
+        RECT paddlemove = paddle.getRect();
         ball.area_updatePosition(GAME_AREA_LEFT, GAME_AREA_TOP, GAME_AREA_RIGHT, GAME_AREA_BOTTOM);
         ball.paddle_updatePosition(paddlemove.left, paddlemove.top, paddlemove.right, paddlemove.bottom);
+
+        // 벽돌 충돌 체크 및 공 업데이트
         for (int j = 0; j < 6; j++) {
             for (int i = 0; i < g_num; i++) {
-                RECT brickRect = brick[j][i];
-                ball.brick_updatePosition(brick[j][i].left, brick[j][i].top, brick[j][i].right, brick[j][i].bottom);
+                RECT brickRect = brick[j][i]->getRect();
+                if (!brick[j][i]->isDestroyed) {
+                    ball.brick_updatePosition(brickRect.left, brickRect.top, brickRect.right, brickRect.bottom);
+                }
+                RECT ballRect = { ball.x, ball.y, ball.x + ball.width, ball.y + ball.height };
+                if (IntersectRect(&tmpRect, &brickRect, &ballRect)) {
+                    brick[j][i]->destroy(); // 벽돌을 파괴 상태로 표시
+                    InvalidateRect(hWnd, NULL, FALSE);
+                }
             }
         }
-        
 
+        // 공의 새로운 위치 계산
+        RECT newBallRect = { ball.x, ball.y, ball.x + ball.width, ball.y + ball.height };
 
-        InvalidateRect(hWnd, NULL, TRUE);
+        // 이전 위치와 새로운 위치를 합친 영역만 다시 그리기
+        RECT updateRect;
+        UnionRect(&updateRect, &prevBallRect, &newBallRect);
+        InvalidateRect(hWnd, &updateRect, FALSE);
+
         break;
+    }
+
+    //case WM_TIMER:
+    //    // 공의 위치 업데이트
+ 
+    //    RECT paddlemove = paddle.getRect();
+
+    //    ball.area_updatePosition(GAME_AREA_LEFT, GAME_AREA_TOP, GAME_AREA_RIGHT, GAME_AREA_BOTTOM);
+    //    ball.paddle_updatePosition(paddlemove.left, paddlemove.top, paddlemove.right, paddlemove.bottom);
+    //    for (int j = 0; j < 6; j++) {
+    //        for (int i = 0; i < g_num; i++) {
+    //            RECT brickRect = brick[j][i]->getRect();
+    //            if (!brick[j][i]->isDestroyed) {
+    //                ball.brick_updatePosition(brickRect.left, brickRect.top, brickRect.right, brickRect.bottom);
+    //            }
+    //            RECT ballRect = { ball.x, ball.y, ball.x + ball.width, ball.y + ball.height };
+    //            if (IntersectRect(&tmpRect, &brickRect, &ballRect)) {
+    //                brick[j][i]->destroy(); // 벽돌을 파괴 상태로 표시
+    //                //brick[j][i] = nullptr;
+    //            }
+    //        }
+    //    }
+    //    InvalidateRect(hWnd, NULL, TRUE);
+    //    break;
     case WM_MOUSEMOVE:
     {
         int mouseX = LOWORD(lParam);
 
+        // Paddle의 이전 위치 가져오기
+        RECT prevPaddleRect = paddle.getRect();
+
+        // Paddle을 새 위치로 이동
         paddle.move(mouseX);
 
-        InvalidateRect(hWnd, NULL, TRUE);
+        // Paddle의 새 위치 가져오기
+        RECT newPaddleRect = paddle.getRect();
+
+        // 이전 위치와 새 위치를 합친 영역만 다시 그리기
+        RECT updateRect;
+        UnionRect(&updateRect, &prevPaddleRect, &newPaddleRect);
+
+        // 합쳐진 영역을 다시 그리기
+        InvalidateRect(hWnd, &updateRect, FALSE);
+
         break;
     }
+
     case WM_COMMAND:
         {
             int wmId = LOWORD(wParam);
@@ -198,27 +253,47 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         }
         break;
     case WM_PAINT:
-        {
-            PAINTSTRUCT ps;
-            HDC hdc = BeginPaint(hWnd, &ps);
-            // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
+    {
+        PAINTSTRUCT ps;
+        HDC hdc = BeginPaint(hWnd, &ps);
 
-            paintSquare.makeSquare(hdc);
+        // 더블 버퍼링을 위한 메모리 DC 생성
+        HDC memDC = CreateCompatibleDC(hdc);
+        HBITMAP memBitmap = CreateCompatibleBitmap(hdc, GAME_AREA_RIGHT, GAME_AREA_BOTTOM);
+        HBITMAP oldBitmap = (HBITMAP)SelectObject(memDC, memBitmap);
 
-            paddle.draw(hdc);
-            for (int j = 0; j < 6; j++) {
-                for (int i = 0; i < g_num; i++) {
-                    if (brick[i] != nullptr) {
-                        brick[j][i]->draw(hdc);
-                    }
+        // 배경 그리기
+        paintSquare.makeSquare(memDC);
+
+        // Paddle 그리기
+        paddle.draw(memDC);
+
+        // 벽돌 그리기
+        for (int j = 0; j < 6; j++) {
+            for (int i = 0; i < g_num; i++) {
+                if (brick[j][i] != nullptr && !brick[j][i]->isDestroyed) {
+                    brick[j][i]->draw(memDC);
                 }
             }
-            
-
-            Ellipse(hdc, ball.x, ball.y, ball.x + ball.width, ball.y + ball.height);
-            EndPaint(hWnd, &ps);
         }
+
+        // 공 그리기
+        Ellipse(memDC, ball.x, ball.y, ball.x + ball.width, ball.y + ball.height);
+
+        // 메모리 DC의 내용을 실제 화면 DC로 복사
+        BitBlt(hdc, 0, 0, GAME_AREA_RIGHT, GAME_AREA_BOTTOM, memDC, 0, 0, SRCCOPY);
+
+        // 리소스 정리
+        SelectObject(memDC, oldBitmap);
+        DeleteObject(memBitmap);
+        DeleteDC(memDC);
+
+        EndPaint(hWnd, &ps);
         break;
+    }
+
+
+
     case WM_DESTROY:
         KillTimer(hWnd, 1);
         PostQuitMessage(0);

@@ -10,9 +10,16 @@ public:
 	//vector<int> m_array;
 	int m_x;
 	int m_y;
+	int width;
+	int height;
 
-	Brick(int x, int y);
+	bool isDestroyed=false;
+	Brick(int x, int y, int width, int height);
 
 	void draw(HDC hdc__);
 
+	void destroy();
+
+	bool isHit();
+	RECT getRect();
 };
