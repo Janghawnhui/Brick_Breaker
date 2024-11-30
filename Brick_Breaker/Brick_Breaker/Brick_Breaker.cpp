@@ -124,7 +124,7 @@ Paddle paddle(PADDLE_LEFT, PADDLE_TOP, PADDLE_RIGHT, PADDLE_BOTTOM);
 
 Brick* brick[6][10];
 
-Ball ball(1000, 700, 5, 5, 5, 5); // 초기 위치와 크기, 속도를 설정
+Ball ball(1000, 700, 5, 5, 10, 10); // 초기 위치와 크기, 속도를 설정
 
 RECT tmpRect;
 
@@ -152,7 +152,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 brick[j][i] = new Brick(brick_width +100* i, brick_height+ 50 * j, brick_width+ 100*i+50, brick_height+50*j+40); // x, y 위치를 다르게 설정
             }
         }
-        SetTimer(hWnd, 1, 1, NULL);
+        SetTimer(hWnd, 1, 16, NULL);
         break;
     case WM_TIMER:
     {
@@ -262,7 +262,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         HBITMAP memBitmap = CreateCompatibleBitmap(hdc, GAME_AREA_RIGHT, GAME_AREA_BOTTOM);
         HBITMAP oldBitmap = (HBITMAP)SelectObject(memDC, memBitmap);
 
-        // 배경 그리기
+        // 메모리 DC 배경 초기화
+        FillRect(memDC, &ps.rcPaint, (HBRUSH)(COLOR_WINDOW + 1));
+
+        // 게임 영역 그리기
         paintSquare.makeSquare(memDC);
 
         // Paddle 그리기
@@ -280,10 +283,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         // 공 그리기
         Ellipse(memDC, ball.x, ball.y, ball.x + ball.width, ball.y + ball.height);
 
-        // 메모리 DC의 내용을 실제 화면 DC로 복사
+        // 메모리 DC를 실제 화면 DC로 복사
         BitBlt(hdc, 0, 0, GAME_AREA_RIGHT, GAME_AREA_BOTTOM, memDC, 0, 0, SRCCOPY);
 
-        // 리소스 정리
+        // 메모리 DC 리소스 정리
         SelectObject(memDC, oldBitmap);
         DeleteObject(memBitmap);
         DeleteDC(memDC);
@@ -291,6 +294,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         EndPaint(hWnd, &ps);
         break;
     }
+
 
 
 
