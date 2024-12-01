@@ -28,8 +28,22 @@ void Brick::draw(HDC hdc__) {
 
 void Brick::destroy() {
 	isDestroyed = true;
+
+	if (rand() % 2 == 0) {
+		int itemType = rand() % 2 + 1;
+		item = new Item(m_x + width / 2 - 10, m_y + height, itemType);
+	}
 }
 
 bool Brick::isHit() {
 	return isDestroyed;
+}
+
+Item* Brick::releaseItem() {
+	if (item != nullptr && !item->isActive) {
+		Item* releasedItem = item;
+		item = nullptr; // 아이템 반환 후 초기화
+		return releasedItem;
+	}
+	return nullptr;
 }

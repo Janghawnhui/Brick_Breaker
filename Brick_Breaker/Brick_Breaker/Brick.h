@@ -1,6 +1,7 @@
 #pragma once
 #include "Resource.h"
 #include "Ball.h"
+#include "Item.h""
 #include <vector>
 using namespace std;
 
@@ -12,6 +13,7 @@ public:
 	int m_y;
 	int width;
 	int height;
+	Item* item = nullptr;
 
 	bool isDestroyed=false;
 	Brick(int x, int y, int width, int height);
@@ -22,4 +24,5 @@ public:
 
 	bool isHit();
 	RECT getRect();
+	Item* releaseItem();
 };
