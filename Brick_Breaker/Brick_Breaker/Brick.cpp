@@ -1,7 +1,6 @@
 #pragma once
 #include "Brick.h"
-
-using namespace std;
+//std::vector<Item*> activeItems;
 
 Brick::Brick(int x, int y, int width, int height){ 
 	m_x = x;
@@ -29,11 +28,14 @@ void Brick::draw(HDC hdc__) {
 void Brick::destroy() {
 	isDestroyed = true;
 
-	if (rand() % 2 == 0) {
-		int itemType = rand() % 2 + 1;
-		item = new Item(m_x + width / 2 - 10, m_y + height, itemType);
-	}
+	//// 랜덤으로 아이템 생성
+	//if (rand() % 2 == 0) {
+	//	int itemType = rand() % 2 + 1; // 아이템 타입 (1 또는 2)
+	//	item = new Item(m_x + width / 2 - 10, m_y + height, itemType);
+	//	activeItems.push_back(item); // 전역 벡터에 추가
+	//}
 }
+
 
 bool Brick::isHit() {
 	return isDestroyed;

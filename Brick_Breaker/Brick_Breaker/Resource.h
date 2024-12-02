@@ -52,5 +52,3 @@
 #define PADDLE_TOP 650
 #define PADDLE_RIGHT 150
 #define PADDLE_BOTTOM 20
-
-

@@ -122,8 +122,8 @@ Paddle paddle(PADDLE_LEFT, PADDLE_TOP, PADDLE_RIGHT, PADDLE_BOTTOM);
 
 //(brick_x, brick_y, brick_x + 70, brick_y + 15);
 
-Brick* brick[6][10];
-std::vector<Item*> items;
+Brick* brick[3][10];
+//std::vector<Item*> items;
 
 Ball ball(1000, 700, 5, 5, 10, -10); // 초기 위치와 크기, 속도를 설정
 
@@ -133,6 +133,8 @@ int g_num = 10;
 
 int brick_width = 50;
 int brick_height = 40;
+
+
 //
 //  함수: WndProc(HWND, UINT, WPARAM, LPARAM)
 //
@@ -151,7 +153,7 @@ float ballSpeedY = 0.0f; // 공의 Y축 속도
 
 bool areAllBricksDestroyed()
 {
-    for (int j = 0; j < 6; j++) {
+    for (int j = 0; j < 3; j++) {
         for (int i = 0; i < g_num; i++) {
             if (!brick[j][i]->isDestroyed) {
                 return false;  // 아직 부서지지 않은 벽돌이 있으면 false 반환
@@ -166,7 +168,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     switch (message)
     {
     case WM_CREATE:
-        for (int j = 0; j < 6; j++) { // 0부터 3까지
+        for (int j = 0; j < 3; j++) { // 0부터 3까지
             for (int i = 0; i < g_num; i++) { // 0부터 g_num-1까지
                 brick[j][i] = new Brick(brick_width +100* i, brick_height+ 50 * j, brick_width+ 100*i+50, brick_height+50*j+40); // x, y 위치를 다르게 설정
             }
@@ -175,7 +177,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         break;
     case WM_TIMER:
     {
-        // 공의 이전 위치 계산
         RECT prevBallRect = { ball.x, ball.y, ball.x + ball.width, ball.y + ball.height };
 
         // Paddle 위치 업데이트
@@ -188,7 +189,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             break;
         }
         // 벽돌 충돌 체크 및 공 업데이트
-        for (int j = 0; j < 6; j++) {
+        for (int j = 0; j < 3; j++) {
             for (int i = 0; i < g_num; i++) {
                 RECT brickRect = brick[j][i]->getRect();
                 if (!brick[j][i]->isDestroyed) {
@@ -204,9 +205,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             }
         }
         if (areAllBricksDestroyed() && !isGameCleared) {
-            MessageBox(hWnd, L"게임 클리어!", L"축하합니다", MB_OK | MB_ICONINFORMATION);
             isGameCleared = true;
+            MessageBox(hWnd, L"게임 클리어!", L"축하합니다", MB_OK | MB_ICONINFORMATION);
             KillTimer(hWnd, 1);  // 타이머 종료
+
         }
         // 공의 새로운 위치 계산
         RECT newBallRect = { ball.x, ball.y, ball.x + ball.width, ball.y + ball.height };
@@ -301,19 +303,20 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         paddle.draw(memDC);
 
         // 벽돌 그리기
-        for (int j = 0; j < 6; j++) {
+        for (int j = 0; j < 3; j++) {
             for (int i = 0; i < g_num; i++) {
                 if (brick[j][i] != nullptr && !brick[j][i]->isDestroyed) {
                     brick[j][i]->draw(memDC);
                 }
             }
         }
-        for (auto& item : items) {
-            item->draw(memDC);
-        }
-
         // 공 그리기
         Ellipse(memDC, ball.x, ball.y, ball.x + ball.width, ball.y + ball.height);
+
+        //for (auto& item : activeItems) {
+        //    item->draw(hdc);
+        //}
+
 
         // 메모리 DC를 실제 화면 DC로 복사
         BitBlt(hdc, 0, 0, GAME_AREA_RIGHT, GAME_AREA_BOTTOM, memDC, 0, 0, SRCCOPY);

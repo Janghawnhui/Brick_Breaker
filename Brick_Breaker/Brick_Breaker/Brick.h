@@ -1,9 +1,9 @@
 #pragma once
 #include "Resource.h"
 #include "Ball.h"
-#include "Item.h""
+#include "Item.h"
 #include <vector>
-using namespace std;
+
 
 class Brick {
 public:

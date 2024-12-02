@@ -1,5 +1,2 @@
 ﻿  Brick_Breaker.cpp
-C:\2nd\2학기 vc++\Brick_Breaker\Brick_Breaker\Brick_Breaker\Brick.h(4,10): warning C4067: 전처리기 지시문 다음에 예기치 않은 토큰이 있습니다. 줄 바꿈 문자가 필요합니다.
-  (소스 파일 'Brick_Breaker.cpp'을(를) 컴파일하는 중)
-  
-  Brick_Breaker.vcxproj -> C:\2nd\2학기 vc++\Brick_Breaker\Brick_Breaker\x64\Debug\Brick_Breaker.exe
+  Brick_Breaker.vcxproj -> C:\2nd\Brick_Breaker\Brick_Breaker\x64\Debug\Brick_Breaker.exe
